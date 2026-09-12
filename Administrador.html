@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress - Panel Administrador</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/admin-styles.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse shadow-sm">
+                <div class="position-sticky pt-4">
+                    <div class="text-center mb-4">
+                        <h4 class="brand-text">ModaExpress</h4>
+                        <span class="badge bg-primary">Panel Admin</span>
+                    </div>
+                    
+                    <ul class="nav flex-column gap-2 px-2">
+                        <li class="nav-item">
+                            <a class="nav-link active menu-link" aria-current="page" href="admin-home.html">
+                                🏠 Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="admin-productos.html">
+                                📦 Mantenedor Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="admin-usuarios.html">
+                                👥 Mantenedor Usuarios
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <hr class="mt-5">
+                    <div class="px-3">
+                        <a href="index.html" class="btn btn-outline-danger w-100 btn-sm">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </nav>
+
+            
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-4 border-bottom">
+                    <h1 class="h2 main-title">¡HOLA Administrador!</h1>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="card shadow-sm border-0 dash-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted">Total Productos</h5>
+                                <h2 class="card-text fw-bold">124</h2>
+                                <a href="#" class="btn btn-primary btn-sm mt-2">Ver catálogo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 mb-4">
+                        <div class="card shadow-sm border-0 dash-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-muted">Usuarios Registrados</h5>
+                                <h2 class="card-text fw-bold">45</h2>
+                                <a href="#" class="btn btn-secondary btn-sm mt-2">Gestionar usuarios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
