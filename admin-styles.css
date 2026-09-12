@@ -1,0 +1,53 @@
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.brand-text {
+    font-weight: 800;
+    color: #1e2a3a;
+    letter-spacing: 1px;
+}
+
+
+.menu-link {
+    color: #4a5a6e;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+    background-color: #eef2f7;
+    color: #0d6efd;
+    transform: translateX(5px); 
+}
+
+.menu-link.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+
+.main-content {
+    background-color: #f5f7fa; 
+    min-height: 100vh;
+}
+
+
+.main-title {
+    color: #1e2a3a;
+    font-weight: 700;
+}
+
+
+.dash-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
