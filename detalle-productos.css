@@ -1,0 +1,125 @@
+.detalle-contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 18px;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.detalle-grid {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.detalle-imagen {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafaf9;
+    border-radius: 14px;
+    height: 320px;
+    border: 1px solid #e7e5e4;
+}
+
+.detalle-icono-grande {
+    font-size: 90px;
+}
+
+.detalle-info {
+    flex: 1.2;
+}
+
+.categoria-badge {
+    color: #a16207;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.detalle-info h2 {
+    font-size: 28px;
+    color: #292524;
+    margin: 8px 0;
+}
+
+.detalle-codigo {
+    font-size: 13px;
+    color: #78716c;
+    margin-bottom: 15px;
+}
+
+.detalle-precio {
+    display: flex;
+    align-items: baseline;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.detalle-precio strong {
+    font-size: 28px;
+    color: #a16207;
+}
+
+.detalle-descripcion {
+    color: #57534e;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.detalle-opciones {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.campo-opcion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.campo-opcion label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #292524;
+    margin-bottom: 6px;
+}
+
+.campo-opcion select,
+.campo-opcion input {
+    padding: 10px;
+    border: 1px solid #d6d3d1;
+    border-radius: 8px;
+    background-color: #fafaf9;
+    font-size: 14px;
+    outline: none;
+}
+
+.detalle-acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.boton-volver {
+    text-align: center;
+    color: #78716c;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.boton-volver:hover {
+    color: #292524;
+}
+
+@media (max-width: 768px) {
+    .detalle-grid {
+        flex-direction: column;
+    }
+}
