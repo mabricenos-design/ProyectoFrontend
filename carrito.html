@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ModaExpress | Carrito de Compras</title>
+
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="carrito.html">🛒 Carrito</a>
+    </nav>
+
+    <main>
+        <section class="carrito-seccion">
+            <div class="login-encabezado">
+                <div class="login-icono">🛒</div>
+                <span class="login-etiqueta">MODAEXPRESS</span>
+                <h2>Tu Carrito</h2>
+                <p class="login-descripcion">Revisa los artículos seleccionados antes de proceder al pago.</p>
+            </div>
+
+            <div class="carrito-layout">
+                <div class="carrito-items">
+                    <article class="carrito-card">
+                        <div class="carrito-item-icono">👕</div>
+                        <div class="carrito-item-detalles">
+                            <h3>Polera básica de algodón</h3>
+                            <p class="carrito-sub">Talla: M | Código: PR001</p>
+                            <span class="carrito-precio-unitario">$12.000</span>
+                        </div>
+                        <div class="carrito-item-cantidad">
+                            <input type="number" value="1" min="1" class="input-cantidad">
+                        </div>
+                        <div class="carrito-item-subtotal">
+                            <strong>$12.000</strong>
+                        </div>
+                        <button type="button" class="btn-eliminar" title="Eliminar producto">✕</button>
+                    </article>
+
+                    <article class="carrito-card">
+                        <div class="carrito-item-icono">👗</div>
+                        <div class="carrito-item-detalles">
+                            <h3>Vestido floral</h3>
+                            <p class="carrito-sub">Talla: S | Código: PR003</p>
+                            <span class="carrito-precio-unitario">$35.000</span>
+                        </div>
+                        <div class="carrito-item-cantidad">
+                            <input type="number" value="1" min="1" class="input-cantidad">
+                        </div>
+                        <div class="carrito-item-subtotal">
+                            <strong>$35.000</strong>
+                        </div>
+                        <button type="button" class="btn-eliminar" title="Eliminar producto">✕</button>
+                    </article>
+                </div>
+
+                <aside class="carrito-resumen">
+                    <h3>Resumen de compra</h3>
+                    <div class="resumen-fila">
+                        <span>Subtotal</span>
+                        <span>$47.000</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <span>Envío estimado</span>
+                        <span>$3.500</span>
+                    </div>
+                    <div class="resumen-total">
+                        <span>Total a pagar</span>
+                        <strong>$50.500</strong>
+                    </div>
+
+                    <button type="button" class="boton-login">Continuar al pago</button>
+                    <a href="productos.html" class="boton-seguir-comprando">Seguir comprando</a>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
