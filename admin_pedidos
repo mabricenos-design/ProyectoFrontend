@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ModaExpress - Pedidos</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS del administrador -->
+    <link rel="stylesheet" href="css/admin-styles.css">
+
+</head>
+
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse shadow-sm">
+
+                <div class="position-sticky pt-4">
+
+                    <!-- LOGO -->
+
+                    <div class="text-center mb-4">
+
+                        <h4 class="brand-text">
+                            ModaExpress
+                        </h4>
+
+                        <span class="badge bg-primary">
+                            Panel Admin
+                        </span>
+
+                    </div>
+
+
+
+                    <ul class="nav flex-column gap-2 px-2">
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link menu-link"
+                                href="admin-home.html"
+                            >
+                                🏠 Home
+                            </a>
+
+                        </li>
+
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link menu-link"
+                                href="admin-productos.html"
+                            >
+                                📦 Mantenedor Productos
+                            </a>
+
+                        </li>
+
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link menu-link"
+                                href="admin-usuarios.html"
+                            >
+                                👥 Mantenedor Usuarios
+                            </a>
+
+                        </li>
+
+
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link active menu-link"
+                                aria-current="page"
+                                href="admin-pedidos.html"
+                            >
+                                🛒 Pedidos
+                            </a>
+
+                        </li>
+
+                    </ul>
+
+
+
+                    <hr class="mt-5">
+
+                    <div class="px-3">
+
+                        <a
+                            href="index.html"
+                            class="btn btn-outline-danger w-100 btn-sm"
+                        >
+                            Cerrar Sesión
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+
+
+                <!-- TÍTULO -->
+
+                <div
+                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-4 border-bottom"
+                >
+
+                    <div>
+
+                        <h1 class="h2 main-title">
+                            Gestión de Pedidos
+                        </h1>
+
+                        <p class="text-muted">
+                            Consulta y revisa los pedidos realizados en ModaExpress.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="row mb-4">
+
+
+                    <div class="col-sm-6 col-lg-3 mb-3">
+
+                        <div class="card shadow-sm border-0 dash-card">
+
+                            <div class="card-body">
+
+                                <h6 class="text-muted">
+                                    Recibidos
+                                </h6>
+
+                                <h2 class="fw-bold">
+                                    12
+                                </h2>
+
+                                <span class="badge bg-primary">
+                                    Nuevos pedidos
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 col-lg-3 mb-3">
+
+                        <div class="card shadow-sm border-0 dash-card">
+
+                            <div class="card-body">
+
+                                <h6 class="text-muted">
+                                    En preparación
+                                </h6>
+
+                                <h2 class="fw-bold">
+                                    8
+                                </h2>
+
+                                <span class="badge bg-warning text-dark">
+                                    Preparando
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 col-lg-3 mb-3">
+
+                        <div class="card shadow-sm border-0 dash-card">
+
+                            <div class="card-body">
+
+                                <h6 class="text-muted">
+                                    Despachados
+                                </h6>
+
+                                <h2 class="fw-bold">
+                                    15
+                                </h2>
+
+                                <span class="badge bg-info">
+                                    En tránsito
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 col-lg-3 mb-3">
+
+                        <div class="card shadow-sm border-0 dash-card">
+
+                            <div class="card-body">
+
+                                <h6 class="text-muted">
+                                    Entregados
+                                </h6>
+
+                                <h2 class="fw-bold">
+                                    25
+                                </h2>
+
+                                <span class="badge bg-success">
+                                    Completados
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card shadow-sm border-0 mb-5">
+
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+
+                            <div>
+
+                                <h4 class="mb-1">
+                                    Pedidos recientes
+                                </h4>
+
+                                <p class="text-muted mb-0">
+                                    Pedidos registrados en el sistema.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                            >
+                                🔄 Actualizar
+                            </button>
+
+                        </div>
+
+
+
+                        <div class="table-responsive">
+
+                            <table class="table table-hover align-middle">
+
+                                <thead class="table-light">
+
+                                    <tr>
+
+                                        <th>
+                                            Pedido
+                                        </th>
+
+                                        <th>
+                                            Cliente
+                                        </th>
+
+                                        <th>
+                                            Fecha
+                                        </th>
+
+                                        <th>
+                                            Productos
+                                        </th>
+
+                                        <th>
+                                            Total
+                                        </th>
+
+                                        <th>
+                                            Estado
+                                        </th>
+
+                                        <th>
+                                            Acción
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED001
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Juan Pérez
+                                        </td>
+
+                                        <td>
+                                            13/09/2026
+                                        </td>
+
+                                        <td>
+                                            Polera básica
+                                        </td>
+
+                                        <td>
+                                            $12.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-primary">
+                                                Recibido
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED002
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            María González
+                                        </td>
+
+                                        <td>
+                                            13/09/2026
+                                        </td>
+
+                                        <td>
+                                            Jeans Slim Fit
+                                        </td>
+
+                                        <td>
+                                            $25.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-warning text-dark">
+                                                En preparación
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED003
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Pedro Soto
+                                        </td>
+
+                                        <td>
+                                            12/09/2026
+                                        </td>
+
+                                        <td>
+                                            Vestido floral
+                                        </td>
+
+                                        <td>
+                                            $35.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-info">
+                                                Despachado
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED004
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Camila Rojas
+                                        </td>
+
+                                        <td>
+                                            11/09/2026
+                                        </td>
+
+                                        <td>
+                                            Blusa de seda
+                                        </td>
+
+                                        <td>
+                                            $28.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-success">
+                                                Entregado
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED005
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Diego Morales
+                                        </td>
+
+                                        <td>
+                                            10/09/2026
+                                        </td>
+
+                                        <td>
+                                            Polerón con capucha
+                                        </td>
+
+                                        <td>
+                                            $18.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-danger">
+                                                Devuelto
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <strong>
+                                                #PED005
+                                            </strong>
+                                        </td>
+
+                                        <td>
+                                            Diego Morales
+                                        </td>
+
+                                        <td>
+                                            10/09/2026
+                                        </td>
+
+                                        <td>
+                                            Polerón con capucha
+                                        </td>
+
+                                        <td>
+                                            $18.000
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge bg-danger">
+                                                Devuelto
+                                            </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <button
+                                                type="button"
+                                                class="btn btn-outline-primary btn-sm"
+                                            >
+                                                Ver detalles
+                                            </button>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+</body>
+
+</html>
