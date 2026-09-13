@@ -8,7 +8,7 @@
 
     <title>ModaExpress | Productos</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/productos-CSS.css">
 </head>
 
 <body>
@@ -22,10 +22,11 @@
 
 
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="Home.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="registro.html">Registrarse</a>
         <a href="login.html">Iniciar sesión</a>
+        <a href="carrito.html">Carrito</a>
     </nav>
 
 
@@ -94,7 +95,8 @@
                     <button
                         type="button"
                         class="boton-producto"
-                        data-producto="PR001">
+                        data-producto="PR001"
+                        data-stock="45">
                         Agregar al carrito
                     </button>
 
@@ -151,7 +153,8 @@
                     <button
                         type="button"
                         class="boton-producto"
-                        data-producto="PR002">
+                        data-producto="PR002"
+                        data-stock="30">
                         Agregar al carrito
                     </button>
 
@@ -208,7 +211,8 @@
                     <button
                         type="button"
                         class="boton-producto"
-                        data-producto="PR003">
+                        data-producto="PR003"
+                        data-stock="20">
                         Agregar al carrito
                     </button>
 
@@ -263,4 +267,52 @@
                     </div>
 
                     <button
+                        type="button"
+                        class="boton-producto"
+                        data-producto="PR004"
+                        data-stock="15">
+                        Agregar al carrito 
+                        
+                    </button> 
+                    </div>
 
+            </article>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+
+    </footer>
+
+    <script src="carrito.js"></script>
+
+</body>
+
+</html>
