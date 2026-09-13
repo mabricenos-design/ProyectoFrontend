@@ -1,0 +1,145 @@
+.carrito-seccion {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.carrito-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.carrito-items {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.carrito-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.carrito-item-icono {
+    font-size: 38px;
+    margin-right: 18px;
+    background: #fafaf9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.carrito-item-detalles {
+    flex: 2;
+}
+
+.carrito-item-detalles h3 {
+    font-size: 16px;
+    color: #292524;
+    margin-bottom: 4px;
+}
+
+.carrito-sub {
+    font-size: 12px;
+    color: #78716c;
+    margin-bottom: 4px;
+}
+
+.carrito-precio-unitario {
+    font-size: 14px;
+    color: #a16207;
+    font-weight: bold;
+}
+
+.carrito-item-cantidad {
+    flex: 1;
+    text-align: center;
+}
+
+.input-cantidad {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #d6d3d1;
+    border-radius: 6px;
+}
+
+.carrito-item-subtotal {
+    flex: 1;
+    text-align: right;
+    font-size: 16px;
+    color: #292524;
+}
+
+.btn-eliminar {
+    background: none;
+    border: none;
+    color: #a8a29e;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.btn-eliminar:hover {
+    color: #ef4444;
+}
+
+.carrito-resumen {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.carrito-resumen h3 {
+    font-size: 18px;
+    color: #292524;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e7e5e4;
+}
+
+.resumen-fila {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #57534e;
+    margin-bottom: 12px;
+}
+
+.resumen-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    color: #292524;
+    margin: 20px 0;
+    padding-top: 15px;
+    border-top: 1px solid #e7e5e4;
+}
+
+.resumen-total strong {
+    color: #a16207;
+}
+
+.boton-seguir-comprando {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #78716c;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .carrito-layout {
+        flex-direction: column;
+    }
+}
