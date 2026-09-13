@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ModaExpress | Detalle del Producto</title>
+
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="carrito.html">🛒 Carrito</a>
+    </nav>
+
+    <main>
+        <section class="detalle-contenedor">
+            <div class="detalle-grid">
+                <div class="detalle-imagen">
+                    <div class="detalle-icono-grande">👕</div>
+                </div>
+
+                <div class="detalle-info">
+                    <span class="categoria-badge">HOMBRE</span>
+                    <h2>Polera básica de algodón</h2>
+                    <p class="detalle-codigo">Código: <strong>PR001</strong></p>
+
+                    <div class="detalle-precio">
+                        <strong>$12.000</strong>
+                        <span class="stock-disponible">Stock disponible: 45 unidades</span>
+                    </div>
+
+                    <p class="detalle-descripcion">
+                        Polera confeccionada en 100% algodón suave y transpirable. Corte regular clásico, 
+                        ideal para combinar con cualquier prenda y para uso diario.
+                    </p>
+
+                    <div class="detalle-opciones">
+                        <div class="campo-opcion">
+                            <label for="talla">Selecciona Talla:</label>
+                            <select id="talla" name="talla">
+                                <option value="S">S - Pequeño</option>
+                                <option value="M" selected>M - Mediano</option>
+                                <option value="L">L - Grande</option>
+                                <option value="XL">XL - Extra Grande</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-opcion">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="45">
+                        </div>
+                    </div>
+
+                    <div class="detalle-acciones">
+                        <a href="carrito.html" class="boton-login" style="text-align: center; text-decoration: none;">
+                            Agregar al carrito
+                        </a>
+                        <a href="productos.html" class="boton-volver">
+                            ← Volver al catálogo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
