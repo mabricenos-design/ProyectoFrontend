@@ -7,7 +7,7 @@
 
     <title>ModaExpress | Carrito de Compras</title>
 
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/carrito.css">
 </head>
 
 <body>
@@ -20,11 +20,11 @@
     </header>
 
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="Home.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="registro.html">Registrarse</a>
         <a href="login.html">Iniciar sesión</a>
-        <a href="carrito.html">🛒 Carrito</a>
+        <a href="carrito.html">Carrito</a>
     </nav>
 
     <main>
@@ -38,55 +38,27 @@
 
             <div class="carrito-layout">
                 <div class="carrito-items">
-                    <article class="carrito-card">
-                        <div class="carrito-item-icono">👕</div>
-                        <div class="carrito-item-detalles">
-                            <h3>Polera básica de algodón</h3>
-                            <p class="carrito-sub">Talla: M | Código: PR001</p>
-                            <span class="carrito-precio-unitario">$12.000</span>
-                        </div>
-                        <div class="carrito-item-cantidad">
-                            <input type="number" value="1" min="1" class="input-cantidad">
-                        </div>
-                        <div class="carrito-item-subtotal">
-                            <strong>$12.000</strong>
-                        </div>
-                        <button type="button" class="btn-eliminar" title="Eliminar producto">✕</button>
-                    </article>
-
-                    <article class="carrito-card">
-                        <div class="carrito-item-icono">👗</div>
-                        <div class="carrito-item-detalles">
-                            <h3>Vestido floral</h3>
-                            <p class="carrito-sub">Talla: S | Código: PR003</p>
-                            <span class="carrito-precio-unitario">$35.000</span>
-                        </div>
-                        <div class="carrito-item-cantidad">
-                            <input type="number" value="1" min="1" class="input-cantidad">
-                        </div>
-                        <div class="carrito-item-subtotal">
-                            <strong>$35.000</strong>
-                        </div>
-                        <button type="button" class="btn-eliminar" title="Eliminar producto">✕</button>
-                    </article>
+                    <!-- Aquí JavaScript insertará solo las prendas que agregues -->
                 </div>
 
                 <aside class="carrito-resumen">
                     <h3>Resumen de compra</h3>
                     <div class="resumen-fila">
                         <span>Subtotal</span>
-                        <span>$47.000</span>
+                        <span id="resumen-subtotal">$0</span>
                     </div>
                     <div class="resumen-fila">
                         <span>Envío estimado</span>
-                        <span>$3.500</span>
+                        <span id="resumen-envio">$0</span>
                     </div>
                     <div class="resumen-total">
                         <span>Total a pagar</span>
-                        <strong>$50.500</strong>
+                        <strong id="resumen-total">$0</strong>
                     </div>
 
-                    <button type="button" class="boton-login">Continuar al pago</button>
+                    <a href="pago.html" class="boton-login" style="text-align: center; text-decoration: none; display: block;">
+                        Continuar al pago
+                    </a>
                     <a href="productos.html" class="boton-seguir-comprando">Seguir comprando</a>
                 </aside>
             </div>
@@ -115,6 +87,7 @@
         </div>
     </footer>
 
+    <script src="carrito.js"></script>
 </body>
 
 </html>
