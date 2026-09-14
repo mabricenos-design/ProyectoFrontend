@@ -7,7 +7,7 @@
 
     <title>ModaExpress | Detalle del Producto</title>
 
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/detalle-productos.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     </header>
 
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="Home.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="registro.html">Registrarse</a>
         <a href="login.html">Iniciar sesión</a>
@@ -100,7 +100,43 @@
             <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
         </div>
     </footer>
+<script>
+    let stocksBase = { "PR001": 45, "PR002": 30, "PR003": 20, "PR004": 15 };
+    let params = new URLSearchParams(window.location.search);
+    let codigo = params.get("id") || "PR001";
 
+    let stock = localStorage.getItem("stock_" + codigo);
+    if (stock === null) {
+        stock = stocksBase[codigo];
+    } else {
+        stock = parseInt(stock);
+    }
+
+    let spanStock = document.querySelector(".stock-disponible");
+    spanStock.textContent = "Stock disponible: " + stock + " unidades";
+
+    document.querySelector(".detalle-acciones .boton-login").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        let estaLogeado = localStorage.getItem("usuario_logeado");
+        if (!estaLogeado) {
+            alert("Debes iniciar sesión o registrarte para agregar productos al carrito.");
+            window.location.href = "registro.html";
+            return;
+        }
+
+        let cantidad = parseInt(document.getElementById("cantidad").value);
+
+        if (cantidad <= stock) {
+            stock = stock - cantidad;
+            localStorage.setItem("stock_" + codigo, stock);
+            spanStock.textContent = "Stock disponible: " + stock + " unidades";
+            alert("Agregado al carrito. Quedan: " + stock);
+        } else {
+            alert("No hay suficiente stock");
+        }
+    });
+</script>
 </body>
 
 </html>
