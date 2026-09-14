@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress | Estado del Pedido</title>
+    <link rel="stylesheet" href="CSS/estadoPedido.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="Home.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="registro.html">Registrarse</a>
+        <a href="login.html">Iniciar sesión</a>
+        <a href="carrito.html">Carrito</a>
+        <a href="estadoPedido.html">Estado Pedido</a>
+    </nav>
+
+    <main>
+        <section class="carrito-seccion">
+            <div class="login-encabezado">
+                <div class="login-icono">📦</div>
+                <span class="login-etiqueta">MODAEXPRESS</span>
+                <h2>Estado de tu Pedido</h2>
+                <p class="login-descripcion">Revisa los detalles y el seguimiento de tu compra reciente.</p>
+            </div>
+
+            <div class="carrito-layout" id="contenedor-estado">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let pedido = JSON.parse(localStorage.getItem("ultimo_pedido"));
+        let contenedor = document.getElementById("contenedor-estado");
+
+        if (!pedido || !pedido.articulos || pedido.articulos.length === 0) {
+            contenedor.innerHTML = `
+                <div class="vacio-box">
+                    <p>No tienes ningún pedido activo en este momento.</p>
+                    <a href="productos.html" class="boton-accion" style="display: inline-block; width: auto; padding: 10px 25px;">Ir al catálogo</a>
+                </div>
+            `;
+        } else {
+            let subtotal = 0;
+            let itemsHTML = "";
+
+            pedido.articulos.forEach(function(item) {
+                let sub = item.precio * item.cantidad;
+                subtotal += sub;
+                itemsHTML += `
+                    <div class="item-fila">
+                        <div class="item-detalle">
+                            <span class="item-icono">${item.icono || '👕'}</span>
+                            <div>
+                                <strong>${item.nombre}</strong>
+                                <p class="item-subtexto">Talla: ${item.talla || 'M'} | Cantidad: ${item.cantidad}</p>
+                            </div>
+                        </div>
+                        <strong>$${sub.toLocaleString("es-CL")}</strong>
+                    </div>
+                `;
+            });
+
+            let envio = 3000;
+            let total = subtotal + envio;
+
+            contenedor.innerHTML = `
+                <div class="caja-blanca">
+                    <div class="pedido-info-box">
+                        <p><strong>N° Pedido:</strong> ${pedido.idPedido}</p>
+                        <p><strong>Fecha de compra:</strong> ${pedido.fecha}</p>
+                        <p><strong>Cliente:</strong> ${pedido.titular}</p>
+                        <p><strong>Estado:</strong> <span class="badge-estado">${pedido.estado}</span></p>
+                    </div>
+
+                    <h3 style="margin-bottom: 15px;">Prendas compradas</h3>
+                    ${itemsHTML}
+                </div>
+
+                <aside class="carrito-resumen">
+                    <h3>Total pagado</h3>
+                    <div class="resumen-fila">
+                        <span>Subtotal</span>
+                        <span>$${subtotal.toLocaleString("es-CL")}</span>
+                    </div>
+                    <div class="resumen-fila">
+                        <span>Envío</span>
+                        <span>$${envio.toLocaleString("es-CL")}</span>
+                    </div>
+                    <div class="resumen-total">
+                        <span>Total final</span>
+                        <strong>$${total.toLocaleString("es-CL")}</strong>
+                    </div>
+                    <a href="productos.html" class="boton-accion">
+                        Seguir comprando
+                    </a>
+                </aside>
+            `;
+        }
+    </script>
+</body>
+
+</html>
