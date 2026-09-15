@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress | Detalle del Producto</title>
+    <link rel="stylesheet" href="CSS/detalle-productos.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav id="menu-navegacion">
+        <a href="Home.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">🛒 Carrito</a>
+        <a href="estadoPedido.html">Estado Pedido</a>
+    </nav>
+
+    <main>
+        <section class="detalle-contenedor">
+            <div class="detalle-grid">
+                <div class="detalle-imagen">
+                </div>
+
+                <div class="detalle-info">
+                    <span class="categoria-badge">HOMBRE</span>
+                    <h2>Polera básica de algodón</h2>
+                    <p class="detalle-codigo">Código: <strong>PR001</strong></p>
+
+                    <div class="detalle-precio">
+                        <strong>$12.000</strong>
+                        <span class="stock-disponible">Stock disponible: 45 unidades</span>
+                    </div>
+
+                    <p class="detalle-descripcion">
+                        Polera confeccionada en 100% algodón suave y transpirable. Corte regular clásico, 
+                        ideal para combinar con cualquier prenda y para uso diario.
+                    </p>
+
+                    <div class="detalle-opciones">
+                        <div class="campo-opcion">
+                            <label for="talla">Selecciona Talla:</label>
+                            <select id="talla" name="talla">
+                                <option value="S">S - Pequeño</option>
+                                <option value="M" selected>M - Mediano</option>
+                                <option value="L">L - Grande</option>
+                                <option value="XL">XL - Extra Grande</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-opcion">
+                            <label for="cantidad">Cantidad:</label>
+                            <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="45">
+                        </div>
+                    </div>
+
+                    <div class="detalle-acciones">
+                        <button type="button" id="btnAgregar" class="boton-login" style="border: none; cursor: pointer; width: auto; padding: 12px 25px;">
+                            Agregar al carrito
+                        </button>
+                        <a href="productos.html" class="boton-volver">
+                            ← Volver al catálogo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let nav = document.getElementById("menu-navegacion");
+        let usuario = JSON.parse(localStorage.getItem("usuario_logueado"));
+
+        if (usuario) {
+            let botonCerrar = document.createElement("a");
+            botonCerrar.href = "#";
+            botonCerrar.textContent = `Cerrar sesión (${usuario.nombre})`;
+            botonCerrar.style.color = "#c48b56";
+            botonCerrar.addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("usuario_logueado");
+                alert("Has cerrado sesión exitosamente.");
+                window.location.href = "login.html";
+            });
+            nav.appendChild(botonCerrar);
+        } else {
+            nav.innerHTML += `
+                <a href="registro.html">Registrarse</a>
+                <a href="login.html">Iniciar sesión</a>
+            `;
+        }
+    });
+
+    const productos = {
+        "PR001": {
+            nombre: "Polera básica de algodón",
+            categoria: "HOMBRE",
+            imagen: "img/Polera.jpg",
+            precio: 12000,
+            stockInicial: 45,
+            descripcion: "Polera confeccionada en 100% algodón suave y transpirable. Corte regular clásico, ideal para combinar con cualquier prenda y para uso diario."
+        },
+        "PR002": {
+            nombre: "Jeans Slim Fit",
+            categoria: "HOMBRE",
+            imagen: "img/Jeans.png",
+            precio: 25000,
+            stockInicial: 30,
+            descripcion: "Jeans de corte Slim Fit con mezclilla elástica de alta durabilidad. Perfectos para un estilo casual y moderno."
+        },
+        "PR003": {
+            nombre: "Vestido floral",
+            categoria: "MUJER",
+            imagen: "img/Vestido.png",
+            precio: 35000,
+            stockInicial: 20,
+            descripcion: "Vestido corto con estampado floral, tela ligera y corte fresco ideal para temporadas cálidas."
+        },
+        "PR004": {
+            nombre: "Blusa de seda",
+            categoria: "MUJER",
+            imagen: "img/Blusa.png",
+            precio: 28000,
+            stockInicial: 15,
+            descripcion: "Blusa elegante de acabado satinado tipo seda. Suave al tacto y perfecta para ocasiones formales o de oficina."
+        }
+    };
+
+    let params = new URLSearchParams(window.location.search);
+    let codigo = params.get("id") || "PR001";
+    let producto = productos[codigo] || productos["PR001"];
+
+    let stock = localStorage.getItem("stock_" + codigo);
+    if (stock === null) {
+        stock = producto.stockInicial;
+    } else {
+        stock = parseInt(stock);
+    }
+
+    document.querySelector(".detalle-imagen").innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}" style="width: 100%; height: 380px; object-fit: cover; border-radius: 12px; display: block;">
+    `;
+    document.querySelector(".categoria-badge").textContent = producto.categoria;
+    document.querySelector(".detalle-info h2").textContent = producto.nombre;
+    document.querySelector(".detalle-codigo strong").textContent = codigo;
+    document.querySelector(".detalle-precio strong").textContent = "$" + producto.precio.toLocaleString("es-CL");
+    document.querySelector(".detalle-descripcion").textContent = producto.descripcion;
+
+    let spanStock = document.querySelector(".stock-disponible");
+    spanStock.textContent = "Stock disponible: " + stock + " unidades";
+
+    let inputCantidad = document.getElementById("cantidad");
+    inputCantidad.max = stock;
+
+    document.getElementById("btnAgregar").addEventListener("click", function(e) {
+        e.preventDefault();
+
+        let usuario = JSON.parse(localStorage.getItem("usuario_logueado"));
+
+        if (!usuario) {
+            alert("Debes iniciar sesión o registrarte para poder agregar productos al carrito.");
+            window.location.href = "registro.html";
+            return;
+        }
+
+        let cantidad = parseInt(inputCantidad.value);
+        let talla = document.getElementById("talla").value;
+
+        if (cantidad <= stock && cantidad > 0) {
+            stock = stock - cantidad;
+            localStorage.setItem("stock_" + codigo, stock);
+
+            let carrito = JSON.parse(localStorage.getItem("carrito_compras")) || [];
+            let itemExistente = carrito.find(item => item.codigo === codigo && item.talla === talla);
+
+            if (itemExistente) {
+                itemExistente.cantidad += cantidad;
+                itemExistente.subtotal = itemExistente.cantidad * itemExistente.precio;
+            } else {
+                carrito.push({
+                    codigo: codigo,
+                    nombre: producto.nombre,
+                    imagen: producto.imagen,
+                    precio: producto.precio,
+                    talla: talla,
+                    cantidad: cantidad,
+                    subtotal: producto.precio * cantidad
+                });
+            }
+
+            localStorage.setItem("carrito_compras", JSON.stringify(carrito));
+            alert("¡Producto agregado al carrito exitosamente!");
+            window.location.href = "carrito.html";
+        } else {
+            alert("La cantidad seleccionada supera el stock disponible o es inválida.");
+        }
+    });
+    </script>
+</body>
+
+</html>
