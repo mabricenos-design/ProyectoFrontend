@@ -1,14 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>ModaExpress | Iniciar sesión</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/login-CSS.css">
 </head>
 
 <body>
@@ -20,172 +17,99 @@
         </div>
     </header>
 
-    
-    <nav>
-        <a href="index.html">Inicio</a>
+    <nav id="menu-navegacion">
+        <a href="Home.html">Inicio</a>
         <a href="productos.html">Productos</a>
         <a href="registro.html">Registrarse</a>
         <a href="login.html">Iniciar sesión</a>
     </nav>
 
-
     <main>
-
         <section class="login">
-
             <div class="login-encabezado">
-
-                <div class="login-icono">
-                    👤
-                </div>
-
+                <div class="login-icono">👤</div>
                 <span class="login-etiqueta">MODAEXPRESS</span>
-
                 <h2>Bienvenido de nuevo</h2>
-
-                <p class="login-descripcion">
-                    Inicia sesión para acceder a tu cuenta y consultar tus pedidos.
-                </p>
-
+                <p class="login-descripcion">Inicia sesión para acceder a tu cuenta y consultar tus pedidos.</p>
             </div>
 
-
-            <form id="loginForm">
-
+            <form id="form-login">
                 <div class="campo-login">
-                    <label for="correo">
-                        Correo electrónico
-                    </label>
-
-                    <input
-                        type="email"
-                        id="correo"
-                        name="correo"
-                        placeholder="ejemplo@correo.com"
-                        autocomplete="email"
-                        required
-                    >
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" autocomplete="email" required>
                 </div>
 
-
                 <div class="campo-login">
-                    <label for="password">
-                        Contraseña
-                    </label>
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Ingresa tu contraseña"
-                        autocomplete="current-password"
-                        required
-                    >
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
                 </div>
-
 
                 <div class="login-opciones">
-
                     <label class="recordar">
-                        <input
-                            type="checkbox"
-                            id="recordar"
-                            name="recordar"
-                        >
-
+                        <input type="checkbox" id="recordar" name="recordar">
                         <span>Recordar mi sesión</span>
                     </label>
-
-                    <a href="#">
-                        ¿Olvidaste tu contraseña?
-                    </a>
-
+                    <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
 
-
-                <button type="submit" class="boton-login">
-                    Iniciar sesión
-                </button>
-
-
-                <p id="mensajeLogin"></p>
-
+                <button type="submit" class="boton-login">Iniciar sesión</button>
             </form>
 
-
             <div class="login-registro">
-
-                <p>
-                    ¿Todavía no tienes una cuenta?
-                </p>
-
-                <a href="registro.html">
-                    Crear una cuenta
-                </a>
-
+                <p>¿Todavía no tienes una cuenta?</p>
+                <a href="registro.html">Crear una cuenta</a>
             </div>
-
         </section>
-
     </main>
 
-
     <footer>
-
         <div class="footer-contenido">
-
             <div>
                 <h3>ModaExpress</h3>
-
-                <p>
-                    Moda moderna y accesible para toda la familia.
-                </p>
+                <p>Moda moderna y accesible para toda la familia.</p>
             </div>
-
-
             <div>
                 <h3>Contacto</h3>
-
-                <p>
-                    contacto@modaexpress.cl
-                </p>
-
-                <p>
-                    Santiago Centro, Chile
-                </p>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
             </div>
-
-
             <div>
                 <h3>Enlaces</h3>
-
-                <p>
-                    <a href="productos.html">
-                        Productos
-                    </a>
-                </p>
-
-                <p>
-                    <a href="registro.html">
-                        Registrarse
-                    </a>
-                </p>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
             </div>
-
         </div>
-
-
         <div class="footer-final">
-
-            <p>
-                © 2026 ModaExpress. Todos los derechos reservados.
-            </p>
-
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
         </div>
-
     </footer>
 
+    <script>
+        document.getElementById("form-login").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let correoIngresado = document.getElementById("correo").value.trim();
+            let passIngresada = document.getElementById("password").value.trim();
+
+            let cuentaGuardada = JSON.parse(localStorage.getItem("cuenta_registrada"));
+
+            if (cuentaGuardada && cuentaGuardada.correo === correoIngresado && cuentaGuardada.password === passIngresada) {
+                localStorage.setItem("usuario_logueado", JSON.stringify(cuentaGuardada));
+                alert("Bienvenido de nuevo, " + cuentaGuardada.nombre);
+                window.location.href = "productos.html";
+            } else if (correoIngresado.length > 0 && passIngresada.length > 0) {
+                let usuarioGenerico = {
+                    nombre: correoIngresado.split("@")[0],
+                    correo: correoIngresado
+                };
+                localStorage.setItem("usuario_logueado", JSON.stringify(usuarioGenerico));
+                alert("Inicio de sesión exitoso.");
+                window.location.href = "productos.html";
+            } else {
+                alert("Por favor completa los campos.");
+            }
+        });
+    </script>
 </body>
 
 </html>
-```
