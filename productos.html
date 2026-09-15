@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress | Productos</title>
+    <link rel="stylesheet" href="CSS/productos-CSS.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav id="menu-navegacion">
+        <a href="Home.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">🛒 Carrito</a>
+        <a href="estadoPedido.html">Estado Pedido</a>
+    </nav>
+
+    <main>
+        <section class="catalogo">
+            <article class="producto-card catalogo-card">
+                <div class="producto-icono">
+                    <img src="img/Polera.jpg" alt="Polera básica de algodón">
+                </div>
+                <div class="producto-contenido">
+                    <span class="categoria">HOMBRE</span>
+                    <h3>Polera básica de algodón</h3>
+                    <div class="producto-info">
+                        <strong>$12.000</strong>
+                        <span id="stock-PR001" class="stock-disponible">Stock: 45</span>
+                    </div>
+                    <a href="detalle-productos.html?id=PR001" class="boton-producto" style="display: block; text-align: center; text-decoration: none;">Ver detalle</a>
+                </div>
+            </article>
+
+            <article class="producto-card catalogo-card">
+                <div class="producto-icono">
+                    <img src="img/Jeans.png" alt="Jeans Slim Fit">
+                </div>
+                <div class="producto-contenido">
+                    <span class="categoria">HOMBRE</span>
+                    <h3>Jeans Slim Fit</h3>
+                    <div class="producto-info">
+                        <strong>$25.000</strong>
+                        <span id="stock-PR002" class="stock-disponible">Stock: 30</span>
+                    </div>
+                    <a href="detalle-productos.html?id=PR002" class="boton-producto" style="display: block; text-align: center; text-decoration: none;">Ver detalle</a>
+                </div>
+            </article>
+
+            <article class="producto-card catalogo-card">
+                <div class="producto-icono">
+                    <img src="img/Vestido.png" alt="Vestido floral">
+                </div>
+                <div class="producto-contenido">
+                    <span class="categoria">MUJER</span>
+                    <h3>Vestido floral</h3>
+                    <div class="producto-info">
+                        <strong>$35.000</strong>
+                        <span id="stock-PR003" class="stock-disponible">Stock: 20</span>
+                    </div>
+                    <a href="detalle-productos.html?id=PR003" class="boton-producto" style="display: block; text-align: center; text-decoration: none;">Ver detalle</a>
+                </div>
+            </article>
+
+            <article class="producto-card catalogo-card">
+                <div class="producto-icono">
+                    <img src="img/Blusa.png" alt="Blusa de seda">
+                </div>
+                <div class="producto-contenido">
+                    <span class="categoria">MUJER</span>
+                    <h3>Blusa de seda</h3>
+                    <div class="producto-info">
+                        <strong>$28.000</strong>
+                        <span id="stock-PR004" class="stock-disponible">Stock: 15</span>
+                    </div>
+                    <a href="detalle-productos.html?id=PR004" class="boton-producto" style="display: block; text-align: center; text-decoration: none;">Ver detalle</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let nav = document.getElementById("menu-navegacion");
+            let usuario = JSON.parse(localStorage.getItem("usuario_logueado"));
+
+            if (usuario) {
+                let botonCerrar = document.createElement("a");
+                botonCerrar.href = "#";
+                botonCerrar.textContent = `Cerrar sesión (${usuario.nombre})`;
+                botonCerrar.style.color = "#c48b56";
+                botonCerrar.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("usuario_logueado");
+                    alert("Has cerrado sesión exitosamente.");
+                    window.location.href = "login.html";
+                });
+                nav.appendChild(botonCerrar);
+            } else {
+                nav.innerHTML += `
+                    <a href="registro.html">Registrarse</a>
+                    <a href="login.html">Iniciar sesión</a>
+                `;
+            }
+
+            ["PR001", "PR002", "PR003", "PR004"].forEach(function(cod) {
+                let guardado = localStorage.getItem("stock_" + cod);
+                if (guardado !== null) {
+                    document.getElementById("stock-" + cod).textContent = "Stock: " + guardado;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
