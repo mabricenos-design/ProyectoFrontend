@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModaExpress | Finalizar Compra</title>
+    <link rel="stylesheet" href="CSS/pago.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>ModaExpress</h1>
+            <p>Moda, estilo y calidad al mejor precio</p>
+        </div>
+    </header>
+
+    <nav id="menu-navegacion">
+        <a href="Home.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">🛒 Carrito</a>
+        <a href="estadoPedido.html">Estado Pedido</a>
+    </nav>
+
+    <main>
+        <section class="login">
+            <div class="login-encabezado">
+                <div class="login-icono">💳</div>
+                <span class="login-etiqueta">MODAEXPRESS</span>
+                <h2>Datos de Pago</h2>
+                <p class="login-descripcion">Ingresa tus datos para completar la compra de tus prendas.</p>
+            </div>
+
+            <form id="pagoForm" onsubmit="
+                event.preventDefault();
+                let carrito = JSON.parse(localStorage.getItem('carrito_compras')) || [];
+                let usuario = JSON.parse(localStorage.getItem('usuario_logueado'));
+                let nombreTitular = document.getElementById('titular').value;
+
+                let pedido = {
+                    idPedido: 'PED-' + Math.floor(1000 + Math.random() * 9000),
+                    fecha: new Date().toLocaleDateString('es-CL'),
+                    titular: nombreTitular || (usuario ? usuario.nombre : 'Cliente'),
+                    articulos: carrito,
+                    estado: 'En preparación'
+                };
+                localStorage.setItem('ultimo_pedido', JSON.stringify(pedido));
+                localStorage.removeItem('carrito_compras');
+                alert('¡Pago realizado con éxito! Redirigiendo a tu pedido...');
+                window.location.href = 'estadoPedido.html';
+            ">
+                <div class="campo-login">
+                    <label for="titular">Nombre en la tarjeta</label>
+                    <input type="text" id="titular" placeholder="Nombre completo" required>
+                </div>
+
+                <div class="campo-login">
+                    <label for="tarjeta">Número de tarjeta</label>
+                    <input type="text" id="tarjeta" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="campo-login" style="flex: 1;">
+                        <label for="fecha">Vencimiento</label>
+                        <input type="text" id="fecha" placeholder="MM/AA" maxlength="5" required>
+                    </div>
+                    <div class="campo-login" style="flex: 1;">
+                        <label for="cvv">CVV</label>
+                        <input type="password" id="cvv" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="boton-login">Confirmar y Pagar</button>
+            </form>
+
+            <div class="login-registro">
+                <a href="carrito.html">← Volver al carrito</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contenido">
+            <div>
+                <h3>ModaExpress</h3>
+                <p>Moda moderna y accesible para toda la familia.</p>
+            </div>
+            <div>
+                <h3>Contacto</h3>
+                <p>contacto@modaexpress.cl</p>
+                <p>Santiago Centro, Chile</p>
+            </div>
+            <div>
+                <h3>Enlaces</h3>
+                <p><a href="productos.html">Productos</a></p>
+                <p><a href="registro.html">Registrarse</a></p>
+            </div>
+        </div>
+        <div class="footer-final">
+            <p>© 2026 ModaExpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let nav = document.getElementById("menu-navegacion");
+            let usuario = JSON.parse(localStorage.getItem("usuario_logueado"));
+
+            if (usuario) {
+                let botonCerrar = document.createElement("a");
+                botonCerrar.href = "#";
+                botonCerrar.textContent = `Cerrar sesión (${usuario.nombre})`;
+                botonCerrar.style.color = "#c48b56";
+                botonCerrar.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("usuario_logueado");
+                    alert("Has cerrado sesión exitosamente.");
+                    window.location.href = "login.html";
+                });
+                nav.appendChild(botonCerrar);
+            } else {
+                nav.innerHTML += `
+                    <a href="registro.html">Registrarse</a>
+                    <a href="login.html">Iniciar sesión</a>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>
