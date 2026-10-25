@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Archivos temporales y copias de seguridad
+*.tmp
+*.bak
+
+# Archivos generados por Windows
+Thumbs.db
