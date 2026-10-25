@@ -1,3 +1,15 @@
+
+if (typeof localStorage === 'undefined') {
+  global.localStorage = {
+    _store: {},
+    getItem(key) { return this._store[key] || null; },
+    setItem(key, value) { this._store[key] = String(value); },
+    removeItem(key) { delete this._store[key]; },
+    clear() { this._store = {}; }
+  };
+}
+
+
 import { PRODUCTOS, obtenerStock, actualizarStock } from '../data/productosDB.js';
 import { guardarNuevoPedido, obtenerPedidos, actualizarEstadoPedido } from '../data/pedidosDB.js';
 
